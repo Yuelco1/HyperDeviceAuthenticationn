@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Device Welcome Portal</title>
+    <link rel="stylesheet" href="webstyle.css">
+</head>
+<body>
+<header>
+    <h1>Device Welcome Portal</h1>
+</header>
+<main>
+    <section id="device-registration">
+        <h2>Device Registration</h2>
+        <form>
+            <label for="device-id">Device ID:</label>
+            <input type="text" id="device-id" name="device-id"><br><br>
+            <label for="device-type">Device Type:</label>
+            <select id="device-type" name="device-type">
+                <option value="SENSOR">SENSOR</option>
+                <option value="LAPTOP">LAPTOP</option>
+                <option value="DESKTOP">DESKTOP</option>
+                <option value="ACTUATOR">ACTUATOR</option>
+                <option value="CAMERA">CAMERA</option>
+                <option value="MICROPHONE">MICROPHONE</option>
+            </select><br><br>
+            <label for="owner-information">Owner Information:</label>
+            <input type="text" id="owner-information" name="owner-information"><br><br>
+            <input type="submit" value="Register Device">
+        </form>
+    </section>
+    <section id="device-authentication">
+        <h2>Device Authentication</h2>
+        <form>
+            <label for="select-device">Select Device:</label>
+            <select id="select-device" name="select-device">
+                <!-- devices will be listed here -->
+            </select><br><br>
+            <label for="authentication-credentials">Authentication Credentials:</label>
+            <input type="text" id="authentication-credentials" name="authentication-credentials"><br><br>
+            <input type="submit" value="Authenticate Device">
+        </form>
+    </section>
+    <section id="security-events-auditing">
+        <h2>Security Events Auditing</h2>
+        <form>
+            <label for="filter-by">Filter by:</label>
+            <select id="filter-by" name="filter-by">
+                <option value="ALL">ALL</option>
+                <option value="DEVICE_REGISTRATION">DEVICE_REGISTRATION</option>
+                <option value="DEVICE_AUTHENTICATION">DEVICE_AUTHENTICATION</option>
+            </select><br><br>
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search"><br><br>
+            <input type="submit" value="View Security Events">
+        </form>
+    </section>
+    <section id="support-mechanism">
+        <h2>Support</h2>
+        <button id="exit-button">Exit</button>
+        <button id="help-button">Help/Support</button>
+    </section>
+    <!-- Help message data -->
+    <div id="help-message">
+        <h2>Help</h2>
+        <p>For support contact admin @Iccole0813@email.campbell.edu</p>
+    </div>
+    <!-- Exit button data -->
+    <div id="exit-confirmation">
+        <h2>Exit Confirmation</h2>
+        <p>Are you sure you want to exit?</p>
+        <button id="exit-yes">Yes</button>
+        <button id="exit-no">No</button>
+    </div>
+</main>
+<script src="webscript.js"></script>
+<script>
+    // Add event listeners to buttons
+    document.getElementById('exit-button').addEventListener('click', exit);
+    document.getElementById('help-button').addEventListener('click', help);
+
+    // Function to exit
+    function exit() {
+        console.log("Exit button clicked");
+        document.getElementById('exit-confirmation').style.display = 'block';
+    }
+
+    // Function to show help
+    function help() {
+        console.log("Help button clicked");
+        document.getElementById('help-message').style.display = 'block';
+    }
+
+    // Add event listeners to exit confirmation buttons
+    document.getElementById('exit-yes').addEventListener('click', function() {
+        window.parent.close();
+    });
+
+    document.getElementById('exit-no').addEventListener('click', function() {
+        document.getElementById('exit-confirmation').style.display = 'none';
+    });
+</script>
+</body>
+</html>
